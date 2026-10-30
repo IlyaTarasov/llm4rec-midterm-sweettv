@@ -1,0 +1,2 @@
+# Preserve the exact audited source/config/evidence bytes across Git clients.
+* -text

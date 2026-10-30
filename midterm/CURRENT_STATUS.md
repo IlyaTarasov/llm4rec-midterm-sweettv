@@ -22,7 +22,8 @@ The editable report source and PDF are in `report_source/` and `output/pdf/`.
 Repository destination:
 https://github.com/IlyaTarasov/llm4rec-midterm-sweettv . The author directly
 authorized publication of all necessary files. The clean publication set was
-reduced from 212 to 84 files plus its exact manifest: dependency-complete code,
+reduced from 212 to 85 files plus its exact manifest (including explicit Git
+byte-preservation attributes): dependency-complete code,
 the existing tests/configurations, selected comparison and negative-experiment
 evidence, and five immutable submission outputs needed by the original hash
 checks. The separate local publication receipt records observed public Git

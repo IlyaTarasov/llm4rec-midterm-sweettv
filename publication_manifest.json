@@ -1,8 +1,8 @@
 {
   "destination": "https://github.com/IlyaTarasov/llm4rec-midterm-sweettv",
   "status": "Exact authorized publication payload; preparation script itself performs no git/network actions. See separate publication receipt for observed publication result.",
-  "file_count": 84,
-  "total_bytes": 769049,
+  "file_count": 85,
+  "total_bytes": 769189,
   "projection_count": 5,
   "exclusions": [
     "licensed raw data",
@@ -64,10 +64,10 @@
     },
     {
       "path": "midterm/CURRENT_STATUS.md",
-      "bytes": 2392,
-      "sha256": "3b96ed6c62798249e01033e16b13856cdecaa9ce8df1af528b21aef30c0f32e8",
+      "bytes": 2446,
+      "sha256": "d95ff416eb43bf68f11e573ab3e67ad1dd41c771db9e9c6eefb0ea79ded4e6dd",
       "source_path": "midterm/CURRENT_STATUS.md",
-      "original_sha256": "3b96ed6c62798249e01033e16b13856cdecaa9ce8df1af528b21aef30c0f32e8",
+      "original_sha256": "d95ff416eb43bf68f11e573ab3e67ad1dd41c771db9e9c6eefb0ea79ded4e6dd",
       "transformation": "byte-identical copy"
     },
     {
@@ -690,6 +690,14 @@
       "path": ".gitignore",
       "bytes": 88,
       "sha256": "9297072a736b2d09c25df0a37c1cb934f397c2fb5f14cc1cb74dc1f70fcbbec5",
+      "source_path": null,
+      "original_sha256": null,
+      "transformation": "generated package documentation"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 86,
+      "sha256": "8e0973fba038d7be45bd2f62035c4f64a563f459beb639479b8c5d1c9752b7d3",
       "source_path": null,
       "original_sha256": null,
       "transformation": "generated package documentation"
