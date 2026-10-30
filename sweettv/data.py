@@ -1,24 +1,17 @@
-"""Data loading, interval join, interaction construction and item metadata."""
+"""Source loading, exact interval joins and qualified training construction."""
 from __future__ import annotations
-
-import re
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence, Tuple
-
+from typing import Dict, Iterable, List, Mapping, Sequence, Set, Tuple
 import numpy as np
 import pandas as pd
-
-from .config import resolve
+from scipy import sparse
+from .models import TrainData
 
 SCHEDULE_FILES = (
     "export_arh_11-20-final.csv",
     "export_arh_21-30-final.csv",
     "export_arh_31-42-final.csv",
 )
-TRAIN_SCHEDULE_FILES = SCHEDULE_FILES[:2]
-TEST_SCHEDULE_FILE = SCHEDULE_FILES[2]
-VIEW_FILE = "dataset11-30.csv"
-SUBMISSION_FILE = "submission.csv"
 
 SCHEDULE_DTYPES = {
     "channel_id": "int64",
@@ -35,6 +28,7 @@ SCHEDULE_DTYPES = {
     "director": "string",
     "actors": "string",
 }
+
 VIEW_DTYPES = {
     "user_id": "uint64",
     "vsetv_id": "int64",
@@ -43,33 +37,21 @@ VIEW_DTYPES = {
     "duraton": "int64",
 }
 
-
 def read_schedule(path: str | Path) -> pd.DataFrame:
-    df = pd.read_csv(resolve(path), encoding="utf-8", dtype=SCHEDULE_DTYPES, keep_default_na=False)
+    df = pd.read_csv(Path(path), encoding="utf-8", dtype=SCHEDULE_DTYPES, keep_default_na=False)
     df["start"] = pd.to_datetime(df["start_time"], format="%d.%m.%Y %H:%M:%S", errors="raise")
     df["duration"] = pd.to_numeric(df["duration"], errors="coerce").fillna(0).astype("int64")
     df["end"] = df["start"] + pd.to_timedelta(df["duration"], unit="s")
     return df
 
-
 def read_views(path: str | Path) -> pd.DataFrame:
-    df = pd.read_csv(resolve(path), encoding="utf-8", dtype=VIEW_DTYPES)
+    df = pd.read_csv(Path(path), encoding="utf-8", dtype=VIEW_DTYPES)
     df["start"] = pd.to_datetime(df["start_time"], format="%Y-%m-%d %H:%M:%S", errors="raise")
     df["stop"] = pd.to_datetime(df["stop_time"], format="%Y-%m-%d %H:%M:%S", errors="raise")
     return df
 
-
 def read_submission(path: str | Path) -> pd.DataFrame:
-    return pd.read_csv(resolve(path), encoding="utf-8", dtype={"user_id": "uint64", "tv_show_id": "string"})
-
-
-def load_all(cfg: Dict) -> Tuple[Dict[str, pd.DataFrame], pd.DataFrame, pd.DataFrame]:
-    data_dir = resolve(cfg["data_dir"])
-    schedules = {name: read_schedule(data_dir / name) for name in SCHEDULE_FILES}
-    views = read_views(data_dir / VIEW_FILE)
-    submission = read_submission(data_dir / SUBMISSION_FILE)
-    return schedules, views, submission
-
+    return pd.read_csv(Path(path), encoding="utf-8", dtype={"user_id": "uint64", "tv_show_id": "string"})
 
 def _labelled_schedule(schedule: pd.DataFrame) -> pd.DataFrame:
     """Return unique labelled rows, sorted by channel and start.
@@ -81,7 +63,6 @@ def _labelled_schedule(schedule: pd.DataFrame) -> pd.DataFrame:
     lab = schedule.loc[schedule["tv_show_id"] != 0, cols].copy()
     lab = lab.drop_duplicates(subset=cols, keep="first")
     return lab.sort_values(["channel_id", "start"], kind="mergesort")
-
 
 def join_views_to_schedule(
     views: pd.DataFrame,
@@ -201,7 +182,6 @@ def join_views_to_schedule(
         ).drop_duplicates(["user_id", "view_start"], keep="first")
     return out
 
-
 def aggregate_interactions(joined: pd.DataFrame) -> pd.DataFrame:
     """Collapse row-level overlaps into one row per (user, programme)."""
     if joined.empty:
@@ -222,84 +202,6 @@ def aggregate_interactions(joined: pd.DataFrame) -> pd.DataFrame:
     )
     return g
 
-
-def parse_year(value: str) -> float:
-    if not isinstance(value, str):
-        return float("nan")
-    m = re.search(r"((?:19|20)\d{2})", value)
-    return float(m.group(1)) if m else float("nan")
-
-
-def _first_nonempty(values: Iterable[str]) -> str:
-    for v in values:
-        if isinstance(v, str) and v.strip():
-            return v.strip()
-    return ""
-
-
-def build_item_metadata(schedules: Sequence[pd.DataFrame], cutoff: pd.Timestamp) -> pd.DataFrame:
-    """Aggregate programme attributes from schedule rows strictly before cutoff.
-
-    Only the programme/channel/airtime columns are used for candidate
-    availability elsewhere.  Genres, cast, director, year, title and category
-    here are training-time metadata; no post-cutoff schedule metadata is read.
-    """
-    cols = [
-        "tv_show_id", "start", "duration", "tv_show_title", "tv_show_category",
-        "tv_show_genre_1", "tv_show_genre_2", "tv_show_genre_3",
-        "year_of_production", "director", "actors", "channel_id",
-    ]
-    frames = []
-    for s in schedules:
-        x = s.loc[(s["tv_show_id"] != 0) & (s["start"] < cutoff), cols]
-        frames.append(x)
-    if not frames:
-        return pd.DataFrame(columns=["title", "category", "genres", "year", "director",
-                                     "actors", "channels", "n_airings"])
-    allrows = pd.concat(frames, ignore_index=True)
-    allrows = allrows.drop_duplicates(
-        subset=["channel_id", "start", "duration", "tv_show_id"], keep="first"
-    )
-
-    recs = []
-    for item, g in allrows.groupby("tv_show_id", sort=True):
-        title_counts = g["tv_show_title"].value_counts()
-        cat_counts = g["tv_show_category"].value_counts()
-        genres = set()
-        for col in ("tv_show_genre_1", "tv_show_genre_2", "tv_show_genre_3"):
-            for v in g[col].unique():
-                if isinstance(v, str) and v.strip():
-                    genres.add(v.strip())
-        years = pd.Series([parse_year(v) for v in g["year_of_production"].unique()]).dropna()
-        year = float(years.mode().iloc[0]) if len(years) else float("nan")
-        recs.append({
-            "item_id": int(item),
-            "title": title_counts.index[0] if len(title_counts) else "",
-            "category": cat_counts.index[0] if len(cat_counts) else "",
-            "genres": sorted(genres),
-            "year": year,
-            "director": _first_nonempty(g["director"].unique()),
-            "actors": _first_nonempty(g["actors"].unique()),
-            "channels": sorted({int(c) for c in g["channel_id"].unique()}),
-            "n_airings": int(len(g)),
-        })
-    if not recs:
-        return pd.DataFrame(columns=["title", "category", "genres", "year", "director",
-                                     "actors", "channels", "n_airings"])
-    return pd.DataFrame(recs).set_index("item_id").sort_index()
-
-
-def window_bounds(cfg: Dict) -> Dict[str, pd.Timestamp]:
-    w = cfg["windows"]
-    return {
-        "fit_start": pd.Timestamp(w["fit_start"]),
-        "val_start": pd.Timestamp(w["val_start"]),
-        "val_end": pd.Timestamp(w["val_end"]),
-        "audit_end": pd.Timestamp(w["audit_end"]),
-        "test_end": pd.Timestamp(w["test_end"]),
-    }
-
-
 def candidate_items(schedule: pd.DataFrame, lo: pd.Timestamp, hi: pd.Timestamp) -> np.ndarray:
     mask = (
         (schedule["tv_show_id"] != 0)
@@ -308,21 +210,87 @@ def candidate_items(schedule: pd.DataFrame, lo: pd.Timestamp, hi: pd.Timestamp) 
     )
     return np.sort(schedule.loc[mask, "tv_show_id"].astype("int64").unique())
 
+KEY = ["user_id", "item_id", "channel_id", "sched_start", "sched_end"]
 
-def interactions_in_window(interactions: pd.DataFrame, lo: pd.Timestamp, hi: pd.Timestamp) -> pd.DataFrame:
-    mask = (interactions["last_view"] >= lo) & (interactions["last_view"] < hi)
-    return interactions.loc[mask].copy()
+def qualify_airings(joined: pd.DataFrame, lo: pd.Timestamp,
+                    hi: pd.Timestamp, complete_views: bool = True) -> pd.DataFrame:
+    """Return one row per airing with union screen time >= 0.8.
 
+    An airing belongs to [lo, hi) when its start is in the window and its end
+    is no later than hi. Complete source views are required by default.
+    """
+    mask = ((joined["sched_start"] >= lo) & (joined["sched_start"] < hi)
+            & (joined["sched_end"] <= hi) & (joined["item_id"] != 0)
+            & (joined["overlap_end"] <= hi))
+    if complete_views:
+        mask &= joined["view_end"] <= hi
+    x = joined.loc[mask, KEY + ["overlap_start", "overlap_end", "view_start"]].copy()
+    if x.empty:
+        return pd.DataFrame(columns=KEY + ["watched_seconds", "duration", "screen_time", "fragment_count", "last_view"])
+    x.sort_values(KEY + ["overlap_start", "overlap_end"], kind="mergesort", inplace=True)
+    # groupby keeps uint64 user IDs exact; DataFrame.shift may coerce them to
+    # float64 and merge adjacent large IDs that differ by only one.
+    group_start = x.groupby(KEY, sort=False).cumcount().eq(0).to_numpy()
+    cumulative_end = x.groupby(KEY, sort=False)["overlap_end"].cummax()
+    prev_end = cumulative_end.shift().where(~group_start, x["overlap_start"])
+    lower = np.maximum(x["overlap_start"].to_numpy(dtype="datetime64[s]").astype("int64"),
+                       prev_end.to_numpy(dtype="datetime64[s]").astype("int64"))
+    upper = x["overlap_end"].to_numpy(dtype="datetime64[s]").astype("int64")
+    x["new_seconds"] = np.maximum(upper - lower, 0)
+    a = x.groupby(KEY, sort=False).agg(
+        watched_seconds=("new_seconds", "sum"),
+        fragment_count=("new_seconds", "size"),
+        last_view=("view_start", "max"),
+    ).reset_index()
+    a["duration"] = (a["sched_end"] - a["sched_start"]).dt.total_seconds()
+    a = a.loc[a["duration"] > 0].copy()
+    a["watched_seconds"] = np.minimum(a["watched_seconds"], a["duration"])
+    a["screen_time"] = a["watched_seconds"] / a["duration"]
+    return a.loc[a["screen_time"] >= 0.8].reset_index(drop=True)
 
-def metadata_coverage(item_ids: Sequence[int], meta: pd.DataFrame) -> Dict[str, float]:
-    ids = pd.Index(item_ids)
-    sub = meta.reindex(ids)
-    n = max(len(ids), 1)
-    return {
-        "n_items": int(len(ids)),
-        "has_category": float(sub["category"].fillna("").astype(str).str.len().gt(0).sum() / n),
-        "has_genre": float(sub["genres"].apply(lambda x: isinstance(x, list) and len(x) > 0).sum() / n),
-        "has_year": float(sub["year"].notna().sum() / n),
-        "has_director": float(sub["director"].fillna("").astype(str).str.len().gt(0).sum() / n),
-        "has_actors": float(sub["actors"].fillna("").astype(str).str.len().gt(0).sum() / n),
-    }
+def build_train_data(
+    cfg: Dict,
+    joined: pd.DataFrame,
+    user_ids: np.ndarray,
+    item_ids: np.ndarray,
+    item_meta: pd.DataFrame,
+    fit_end: pd.Timestamp,
+) -> TrainData:
+    jc = cfg["join"]
+    j = joined.loc[
+        (joined["overlap_end"] <= fit_end)
+        & (joined["overlap_seconds"] >= int(jc["min_overlap_seconds"]))
+        & (joined["overlap_fraction"] >= float(jc["min_overlap_fraction"]))
+    ]
+    inter = aggregate_interactions(j)
+    if inter.empty:
+        raise RuntimeError("no training interactions before fit_end")
+    uidx = np.searchsorted(user_ids, inter["user_id"].to_numpy(dtype=np.uint64))
+    iidx = np.searchsorted(item_ids, inter["item_id"].to_numpy(dtype=np.int64))
+    if not np.array_equal(user_ids[uidx], inter["user_id"].to_numpy(dtype=np.uint64)):
+        raise RuntimeError("user vocabulary mismatch")
+    if not np.array_equal(item_ids[iidx], inter["item_id"].to_numpy(dtype=np.int64)):
+        raise RuntimeError("item vocabulary mismatch")
+    inter = inter.assign(uidx=uidx, iidx=iidx)
+    inter["last_ts"] = inter["last_view"].values.astype("datetime64[s]").astype("int64")
+    rows = inter["uidx"].to_numpy()
+    cols = inter["iidx"].to_numpy()
+    n_users, n_items = len(user_ids), len(item_ids)
+    Xb = sparse.csr_matrix((np.ones(len(inter), dtype=float), (rows, cols)), shape=(n_users, n_items))
+    Xc = sparse.csr_matrix((inter["view_count"].to_numpy(dtype=float), (rows, cols)), shape=(n_users, n_items))
+    Xs = sparse.csr_matrix((inter["watched_seconds"].to_numpy(dtype=float), (rows, cols)), shape=(n_users, n_items))
+    Xl = sparse.csr_matrix((inter["last_ts"].to_numpy(dtype=float), (rows, cols)), shape=(n_users, n_items))
+    return TrainData(
+        user_ids=user_ids,
+        item_ids=item_ids,
+        interactions=inter,
+        item_meta=item_meta,
+        n_users=n_users,
+        n_items=n_items,
+        X_binary=Xb,
+        X_count=Xc,
+        X_seconds=Xs,
+        X_last=Xl,
+        window_start_ts=int(fit_end.value // 10**9),
+        seed=int(cfg["seed"]),
+    )
