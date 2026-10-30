@@ -66,10 +66,16 @@ Expected SHA256:
 
 ## Model
 
-Training ends on 27 July 2020; candidates come from labelled future airings
-through 19 October. Overlapping view fragments are unioned per user/airing,
-and an airing qualifies at 80% screen time. Personal training requires
-complete source views and airings before cutoff. User IDs remain uint64.
+The configured `fit_cutoff` of 27 July 2020 is the historical viewing-log
+boundary used to fit and score the recommender, not the date this project was
+trained. The fitting window is [9 March, 27 July 2020): airings must start
+before 00:00 on 27 July, and complete source views and airings may end exactly
+at that boundary. The future schedule supplies candidate programme IDs,
+channels, airing start times and durations for [27 July, 20 October 2020),
+including the availability adjustment; future user viewing behavior is not
+used. Overlapping view fragments are unioned per user/airing, and an airing
+qualifies at 80% screen time. Personal training requires complete source views
+and airings by the cutoff. User IDs remain uint64.
 
 The implemented methods are distinct-user popularity, co-view association
 rules (support 10, confidence 0.05, active-user lift 1, top 100 neighbors) and
