@@ -1,0 +1,91 @@
+{
+  "candidate_path": "midterm/submission_candidate_repeat1.csv",
+  "candidate_sha256": "417da46cfd180eb248c9f9afe72232267a2eadc47b9dd9199d5ed5b2f67503c2",
+  "configuration_path": "midterm/configs/candidate_repeat1.json",
+  "configuration_sha256": "3621341c728a06f4952d6937971b34bea65264524a2c96412df82e03dbcbf1a4",
+  "baseline_sha256": {
+    "submission.csv": "2a7a8aced60e8c3b3ae0a5a66b1b5b74839ae9f0bbd42b0e7a486f86246676af",
+    "default_config.json": "b6370f9aa3f34d8a258351bba90a042d053581a028a54410dfcc6538471ced6e",
+    "selected_model.json": "9c3d110c96c96244cfbe8e5f7a06b153f539894b9621d3b7c5bff562f2a8b939",
+    "final_manifest.json": "07b16e2de0383994a52ece23abe25aacbe6adc0df9eea9f67666debce76ec609"
+  },
+  "source_data_sha256": {
+    "dataset11-30.csv": "8c9e5f058157041e5c33f13e64dc1625a5177cc6d5e434ba18cd8a69afafb53b",
+    "export_arh_11-20-final.csv": "7888aa00c20db3db23f95000c721eccf2878e5f58bf5383bb25b99f078b1033c",
+    "export_arh_21-30-final.csv": "bdc9fa9850239aaed608bece9cdb200011e690300470fe85b980457d8c0cb2d4",
+    "export_arh_31-42-final.csv": "5cc01f4619bd94886d83744f00bbc15cc5fa23384d297244a7dc2207450c4088",
+    "submission.csv": "d8c209dce3c7c9d815d8e2a6226e1be63052ee7afa7e8ba8b75dc2f703967a02"
+  },
+  "code_sha256": {
+    "models.py": "1cad14ddf1036985400c2659d8b135bb2985798269ab48af08a9f7e337365445",
+    "evaluate.py": "a80547248749541a9bf95a6c0be852635e249403452d3feb7f91867a7cf6a9a1",
+    "data.py": "9f6953ba0e0446b7083cebfd1e953613a820df695f6afe219d13ae97eb237321",
+    "metrics.py": "310296a1ad7f5cfda43bf0f1eb096aba333d5cdbc0ba3408a4b9f498ae08abae",
+    "followup_candidate.py": "5e144dae5d3af57545638625e0e12c12a6f9e607dda23e044678ee9adef807bd"
+  },
+  "train_window": [
+    "2020-03-09",
+    "2020-07-27"
+  ],
+  "test_window": [
+    "2020-07-27",
+    "2020-10-20"
+  ],
+  "join": {
+    "min_overlap_seconds": 60,
+    "min_overlap_fraction": 0.0,
+    "best_overlap_only": false
+  },
+  "candidate_policy": "labelled programme ids with airing start in test window",
+  "repeat_policy": "allow",
+  "n_test_candidates": 6636,
+  "recommendation_stats": {
+    "cold_users": 2,
+    "fallback_used": 2,
+    "short_lists": 0
+  },
+  "verification": {
+    "template_users_and_order": true,
+    "rows": 1260,
+    "five_distinct_nonzero_allowed_ids": true,
+    "cold_fallback_users": 2,
+    "cold_fallback_exact": true
+  },
+  "deterministic_ranking_assembly": true,
+  "evidence_map5_all": {
+    "early_7d": {
+      "baseline_map5_all": 0.3950842151675485,
+      "candidate_map5_all": 0.372597442680776
+    },
+    "early_14d": {
+      "baseline_map5_all": 0.5034625220458554,
+      "candidate_map5_all": 0.4874276895943563
+    },
+    "early_35d": {
+      "baseline_map5_all": 0.5964761904761904,
+      "candidate_map5_all": 0.5858011463844797
+    },
+    "early_70d": {
+      "baseline_map5_all": 0.823121693121693,
+      "candidate_map5_all": 0.8290925925925927
+    },
+    "rolling_70d": {
+      "baseline_map5_all": 0.8351428571428571,
+      "candidate_map5_all": 0.8509047619047618
+    },
+    "later_35d_reused": {
+      "baseline_map5_all": 0.7354285714285714,
+      "candidate_map5_all": 0.7488253968253968
+    }
+  },
+  "evidence_caveat": "Later audit was inspected before this follow-up; ten-week windows overlap earlier inspected data. Hidden Kaggle labels remain unknown.",
+  "seed": 42,
+  "runtime_seconds": 11.938,
+  "environment": {
+    "python": "3.13.0",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.3.3",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1"
+  }
+}

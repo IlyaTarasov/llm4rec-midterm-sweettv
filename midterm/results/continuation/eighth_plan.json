@@ -1,0 +1,12 @@
+{
+  "created_before_variant_scores": true,
+  "cohort_evidence": "eighth_cohorts.json; count bands0/1-4/5-19/20-99/100+ and age bands0-3/3-14/14+ days defined using pre-cutoff qualifying events only. Weak counts and stale profiles show mixed mean but more paired losses; sufficient for a small ablation, not a routing conclusion.",
+  "confidence_grid": {"k":[5,20],"tau_days":[28,56,"infinity"],"variants":6},
+  "confidence_formula": "popularity_score + count/(count+k)*exp(-latest_qualified_age/tau)*(internal_challenger_score-popularity_score). Same zero-history/zero-score fallback remains enforced. All personal terms shrink smoothly together.",
+  "channel_grid": {"profile_alpha_sessions":[20,100],"personal_factor_blend":[0.25,0.5],"variants":4},
+  "channel_formula": "p(user,channel)=(past_raw_session_count+alpha*training_only_global_channel_share)/(past_raw_sessions+alpha). Expected airing exposure is sum of p(user,channel) over distinct labelled schedule airings divided by window days. Personalized factor=clip(sqrt((min(future_exposure_rate,2)+0.2)/(min(past_exposure_rate,2)+0.2)),0.5,1.5). Blend factor=(1-b)*existing_global_factor+b*personal_factor; multiply integrated-h56 repeat before normalization. Keep MF0.25 and fusion weights fixed.",
+  "integrity": "Only complete pre-cutoff raw intervals inform channel profiles/prior. Unseen channels receive training prior, zero for globally unseen channels; ID0 raw context is allowed. Future schedule uses ID/channel/start/duration only; duplicate airings removed. Same qualified80 target/users/candidates/cold/fallback/repeat policy as fourth and current internal control.",
+  "selection": "Select mean eligible-five MAP@5 over existing three selection windows, tie higher all-user. Keep a variant only if it improves internal control on both metrics in every window. Reject inconsistent avenues, no further grid expansion. Both controls appear in every result.",
+  "final_diagnostic": "After both stages select at most one final configuration, freeze hashes, then one reused May04 diagnostic with union and single-view80 targets. No tuning on diagnostic. No submission CSV.",
+  "reuse": "Every period/data source has been inspected repeatedly. Cohort analysis and selection are reused evidence; no independent holdout claim."
+}

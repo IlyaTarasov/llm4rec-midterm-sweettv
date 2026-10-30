@@ -1,0 +1,791 @@
+{
+  "window": {
+    "name": "apr13_84d",
+    "fit_start": "2020-03-09",
+    "cutoff": "2020-04-13",
+    "end": "2020-07-06",
+    "schedule": "11-20+21-30"
+  },
+  "n_users": 1260,
+  "n_candidates": 6975,
+  "n_eligible5": 1163,
+  "qualified_cold": 34,
+  "methods": [
+    {
+      "window": "apr13_84d",
+      "variant": "Popularity",
+      "map5_all_users": 0.29593165784832454,
+      "map5_eligible5": 0.310097449125824,
+      "map5_single_eligible5": 0.3239707602339182,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "fit_score_seconds": 0.014291099999354628
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "Association",
+      "map5_all_users": 0.3058520723104057,
+      "map5_eligible5": 0.3220263685869877,
+      "map5_single_eligible5": 0.3363713450292398,
+      "n_eligible5": 1163,
+      "fallback_used": 38,
+      "fit_score_seconds": 0.4387864999998783
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "Content",
+      "map5_all_users": 0.0877202380952381,
+      "map5_eligible5": 0.08899971338492405,
+      "map5_single_eligible5": 0.08831286549707604,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "fit_score_seconds": 1.1479349000001093
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "MF",
+      "map5_all_users": 0.30840057319223985,
+      "map5_eligible5": 0.3192605331040413,
+      "map5_single_eligible5": 0.32263157894736844,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "fit_score_seconds": 5.092082699999992
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "PPR",
+      "map5_all_users": 0.34255335097001766,
+      "map5_eligible5": 0.3571395815419891,
+      "map5_single_eligible5": 0.37111988304093574,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "fit_score_seconds": 7.2112543000002916
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "Final",
+      "map5_all_users": 0.41474537037037035,
+      "map5_eligible5": 0.4351246775580395,
+      "map5_single_eligible5": 0.4438684210526316,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "fit_score_seconds": null
+    }
+  ],
+  "examples": [
+    {
+      "user_id": "13571199046623737884",
+      "method": "Popularity",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Popularity",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": true,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Popularity",
+      "rank": 3,
+      "id": 200344,
+      "title": "'Чистоnews'.",
+      "category": "Развлечения",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Popularity",
+      "rank": 4,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Popularity",
+      "rank": 5,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Popularity",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Popularity",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Popularity",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Popularity",
+      "rank": 4,
+      "id": 6500479,
+      "title": "'Мир наизнанку. Бразилия', 36 эп.",
+      "category": "Познавательное",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Popularity",
+      "rank": 5,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Association",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Association",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": true,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Association",
+      "rank": 3,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Association",
+      "rank": 4,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Association",
+      "rank": 5,
+      "id": 200344,
+      "title": "'Чистоnews'.",
+      "category": "Развлечения",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Association",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Association",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Association",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Association",
+      "rank": 4,
+      "id": 6500479,
+      "title": "'Мир наизнанку. Бразилия', 36 эп.",
+      "category": "Познавательное",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Association",
+      "rank": 5,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Content",
+      "rank": 1,
+      "id": 12002355,
+      "title": "М/с 'Кунг-фу панда: Удивительные легенды'.",
+      "category": "Детям",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Content",
+      "rank": 2,
+      "id": 12002809,
+      "title": "М/с 'Ниндзяго'.",
+      "category": "Детям",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Content",
+      "rank": 3,
+      "id": 12002720,
+      "title": "М/с 'Соник Бум'.",
+      "category": "Детям",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Content",
+      "rank": 4,
+      "id": 12002904,
+      "title": "М/с 'Рыцари Нексо Найтс'.",
+      "category": "Детям",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Content",
+      "rank": 5,
+      "id": 120082346,
+      "title": "М/ф 'Муми-тролли и зимняя сказка'.",
+      "category": "Детям",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Content",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Content",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Content",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Content",
+      "rank": 4,
+      "id": 6500479,
+      "title": "'Мир наизнанку. Бразилия', 36 эп.",
+      "category": "Познавательное",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Content",
+      "rank": 5,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "MF",
+      "rank": 1,
+      "id": 90073851,
+      "title": "Х/ф 'Битва титанов'.",
+      "category": "Фильмы",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "MF",
+      "rank": 2,
+      "id": 90072186,
+      "title": "Х/ф 'Железный человек 2'.",
+      "category": "Фильмы",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "MF",
+      "rank": 3,
+      "id": 1000589,
+      "title": "Т/с 'Отчаянные домохозяйки', 4 сезон, 17 с.",
+      "category": "Сериалы",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "MF",
+      "rank": 4,
+      "id": 5900347,
+      "title": "'Деньги'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "MF",
+      "rank": 5,
+      "id": 10003014,
+      "title": "Т/с 'Отдел 44', 71 с.",
+      "category": "Сериалы",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "MF",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "MF",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "MF",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "MF",
+      "rank": 4,
+      "id": 6500479,
+      "title": "'Мир наизнанку. Бразилия', 36 эп.",
+      "category": "Познавательное",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "MF",
+      "rank": 5,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "PPR",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "PPR",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": true,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "PPR",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "PPR",
+      "rank": 4,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "PPR",
+      "rank": 5,
+      "id": 200344,
+      "title": "'Чистоnews'.",
+      "category": "Развлечения",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "PPR",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "PPR",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "PPR",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "PPR",
+      "rank": 4,
+      "id": 6500479,
+      "title": "'Мир наизнанку. Бразилия', 36 эп.",
+      "category": "Познавательное",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "PPR",
+      "rank": 5,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Final",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Final",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": true,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Final",
+      "rank": 3,
+      "id": 12001682,
+      "title": "М/с 'Губка Боб Квадратные Штаны'.",
+      "category": "Детям",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Final",
+      "rank": 4,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "13571199046623737884",
+      "method": "Final",
+      "rank": 5,
+      "id": 20088,
+      "title": "'Завтрак с 1+1'. Информационно-развлекательная программа.",
+      "category": "Развлечения",
+      "hit": false,
+      "seen_training": true,
+      "ap5": 0.1
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Final",
+      "rank": 1,
+      "id": 2400480,
+      "title": "'ТСН. Неделя'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Final",
+      "rank": 2,
+      "id": 240081,
+      "title": "Факты. День.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Final",
+      "rank": 3,
+      "id": 2400508,
+      "title": "Сегодня. Итоги с Олегом Панютой.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Final",
+      "rank": 4,
+      "id": 6500479,
+      "title": "'Мир наизнанку. Бразилия', 36 эп.",
+      "category": "Познавательное",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    },
+    {
+      "user_id": "17337543921140631187",
+      "method": "Final",
+      "rank": 5,
+      "id": 2400467,
+      "title": "'Викна-Новости'.",
+      "category": "Инфо",
+      "hit": false,
+      "seen_training": false,
+      "ap5": 0.0
+    }
+  ],
+  "users": [
+    {
+      "user_id": "13571199046623737884",
+      "qualified_airings": 890,
+      "qualified_items": 219,
+      "target_ids": [
+        200337,
+        200352,
+        200432,
+        240081,
+        12001734
+      ],
+      "target_size": 5,
+      "training_top_items": [
+        {
+          "item_id": 2400480,
+          "view_count": 70
+        },
+        {
+          "item_id": 12001682,
+          "view_count": 65
+        },
+        {
+          "item_id": 240081,
+          "view_count": 64
+        },
+        {
+          "item_id": 20088,
+          "view_count": 39
+        },
+        {
+          "item_id": 2400508,
+          "view_count": 36
+        }
+      ]
+    },
+    {
+      "user_id": "17337543921140631187",
+      "qualified_airings": 0,
+      "qualified_items": 0,
+      "target_ids": [],
+      "target_size": 0,
+      "training_top_items": []
+    }
+  ],
+  "runtimes": {
+    "Popularity": 0.014291099999354628,
+    "Association": 0.4387864999998783,
+    "Content": 1.1479349000001093,
+    "MF": 5.092082699999992,
+    "PPR": 7.2112543000002916,
+    "Final_incremental": 6.120546500000273
+  },
+  "executor": "assistant-executed reproduction of frozen models, no new selection"
+}

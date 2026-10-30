@@ -1,0 +1,7 @@
+midterm/data/
+midterm/artifacts/
+midterm/runs/
+**/__pycache__/
+**/*.py[cod]
+.venv/
+.env

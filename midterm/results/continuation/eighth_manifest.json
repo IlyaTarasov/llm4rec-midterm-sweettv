@@ -1,0 +1,22 @@
+{
+  "submitted_hashes": {
+    "submission.csv": "2a7a8aced60e8c3b3ae0a5a66b1b5b74839ae9f0bbd42b0e7a486f86246676af",
+    "submission_candidate_repeat1.csv": "417da46cfd180eb248c9f9afe72232267a2eadc47b9dd9199d5ed5b2f67503c2",
+    "submission_candidate_screen80.csv": "1dca968e89c55ca9032aae1a70417980e15d584e2f9540b4c0fb29c83060edc2",
+    "submission_candidate_opportunity.csv": "519d2fc50cc4eb12829b365e93c8fdbfe0a14d692f1257cee01a88436d0ab998"
+  },
+  "submitted_unchanged": true,
+  "tests_passed": 32,
+  "new_submission_csv": false,
+  "code_hashes": {
+    "eighth_pass.py": "060b0b34faf5779b12ce94c0e324b573ef1598084510c2b260c90f18f225f914"
+  },
+  "evidence_hashes": {
+    "eighth_plan.json": "f31254d834317e3bd95885685165ae3ea45723cb96daaa484d7839d930cc0d70",
+    "eighth_cohorts.json": "906bd0c5b3a35af0adee6db210a4b04127f8ed993f4a3401b43b46131954ec8a",
+    "eighth_confidence.json": "dc68e884b01478a6f606bee2d55adf2ee748ef466cd22d663cfe1836242a9dde",
+    "eighth_channel.json": "0d337e08ba7d614792c1f42feed97b21dd030210a71b686c33e9c8e56f78e142",
+    "eighth_final_decision.json": "2c2fbfe2441854e5d8ea749a948aac326ac13247a6e989aa0ee5b871540cd132",
+    "eighth_final.json": "b81e51a0337d2fa5248dc2bfe497cf8413a346519c84439b46d96e1a84cb6bfb"
+  }
+}

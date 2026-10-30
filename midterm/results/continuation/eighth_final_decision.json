@@ -1,0 +1,8 @@
+{
+  "selected": "confidence_k5_tau56_on_internal_challenger",
+  "confidence_sha256": "dc68e884b01478a6f606bee2d55adf2ee748ef466cd22d663cfe1836242a9dde",
+  "channel_sha256": "0d337e08ba7d614792c1f42feed97b21dd030210a71b686c33e9c8e56f78e142",
+  "channel_rejected": "all four variants worse in all windows",
+  "frozen_before_final_diagnostic": true,
+  "submission_csv": false
+}

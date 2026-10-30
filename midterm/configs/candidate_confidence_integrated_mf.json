@@ -1,0 +1,15 @@
+{
+  "selected_strategy":"frozen_confidence_k5_tau56",
+  "fit_start":"2020-03-09", "fit_cutoff":"2020-07-27", "candidate_end_exclusive":"2020-10-20", "seed":42,
+  "qualification":"union same-user/channel/item/airing overlap fragments; cap at airing duration; >=0.8; complete views and airings before cutoff; no absolute-second floor",
+  "target":"five most frequent qualifying programme IDs; ascending-ID frequency ties locally; local AP treats top-five target as set",
+  "popularity":{"weight":"distinct qualified users","fusion_weight":1,"normalization":"global"},
+  "association":{"lift_population":"training_active","min_support":10,"top_k":100,"min_confidence":0.05,"min_lift":1,"half_life_days":30,"fusion_weight":0.25,"normalization":"user"},
+  "repeat":{"score":"log1p(sum 0.5^(age_of_qualified_airing_end_days/56))","fusion_weight":2,"normalization":"user after opportunity factor"},
+  "opportunity":{"formula":"clip(sqrt((min(future_airings/future_days,2)+0.2)/(min(past_airings/past_days,2)+0.2)),0.5,1.5)","schedule_columns":"ID/channel/start/duration only; distinct complete labelled airings"},
+  "implicit_mf":{"factors":16,"alpha":5,"reg":0.05,"iterations":15,"weight":"log1p qualified counts as confidence on binary preference","fusion_weight":0.25,"normalization":"user maximum"},
+  "confidence":{"formula":"n/(n+5)*exp(-latest_qualified_view_age_days/56)","n":"total qualified-airing training count","applies_to":"all personal terms including MF; global popularity unchanged"},
+  "fallback":"no qualified history or zero/nonfinite score -> training-only all60 distinct-user popularity",
+  "repeat_policy":"allow", "ties":"ascending programme ID",
+  "excluded":"Poisson extension rejected by predeclared threshold; personalized channel factor rejected"
+}

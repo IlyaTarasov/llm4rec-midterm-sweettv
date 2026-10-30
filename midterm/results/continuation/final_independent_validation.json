@@ -1,0 +1,12 @@
+{
+  "rows": 1260,
+  "candidate_ids_from_source_schedule": 6636,
+  "schema": [
+    "user_id",
+    "tv_show_id"
+  ],
+  "string_exact_template_ids": true,
+  "five_unique_positive_eligible_ids": true,
+  "sha256": "4b8e43896f9f0cdd81d31427a2798969111cc59626d1ac8df86825a630d7077a",
+  "all_four_prior_hashes_unchanged": true
+}

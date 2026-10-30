@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "data_dir": "midterm/data/sweettv-tv-program-recommender",
+  "artifacts_dir": "midterm/artifacts",
+  "template": "midterm/data/sweettv-tv-program-recommender/submission.csv",
+  "output": "midterm/submission_candidate_repeat1.csv",
+  "seed": 42,
+  "join": {
+    "min_overlap_seconds": 60,
+    "min_overlap_fraction": 0.0,
+    "best_overlap_only": false
+  },
+  "train_window": ["2020-03-09", "2020-07-27"],
+  "test_window": ["2020-07-27", "2020-10-20"],
+  "candidate_policy": "labelled programme ids with airing start in test window",
+  "repeat_policy": "allow",
+  "popularity": {"weight": "users"},
+  "association": {
+    "min_support": 10,
+    "min_confidence": 0.05,
+    "min_lift": 1.0,
+    "top_k": 100,
+    "half_life_days": 30.0
+  },
+  "repeat": {"half_life_days": 14.0},
+  "fusion_weights": {
+    "popularity": {"weight": 1.0, "normalize": "global"},
+    "association": {"weight": 0.25, "normalize": "user"},
+    "repeat": {"weight": 1.0, "normalize": "user"}
+  },
+  "fallback": "training-only distinct-user popularity over test candidates"
+}

@@ -1,0 +1,611 @@
+{
+  "plan_sha256": "9b73fc036cd812bebb9e7483753b156cf612751de74355f40fe9f306dc5d7b5b",
+  "rows": [
+    {
+      "window": "apr06_84d",
+      "variant": "submitted_confidence",
+      "map5_all_users": 0.41885251322751316,
+      "map5_eligible5": 0.43914399092970524,
+      "map5_single_eligible5": 0.44525165372447506,
+      "n_eligible5": 1176,
+      "fallback_used": 45
+    },
+    {
+      "window": "apr06_84d",
+      "variant": "running_control",
+      "map5_all_users": 0.41885251322751316,
+      "map5_eligible5": 0.43914399092970524,
+      "map5_single_eligible5": 0.44525165372447506,
+      "n_eligible5": 1176,
+      "fallback_used": 45
+    },
+    {
+      "window": "apr06_84d",
+      "variant": "power0.5",
+      "map5_all_users": 0.41586970899470893,
+      "map5_eligible5": 0.43562925170068023,
+      "map5_single_eligible5": 0.4424446361806154,
+      "n_eligible5": 1176,
+      "fallback_used": 45,
+      "users_gained": 86,
+      "users_lost": 126,
+      "users_tied": 1048,
+      "mean_user_ap_delta": -0.0029828042328042333
+    },
+    {
+      "window": "apr06_84d",
+      "variant": "power1",
+      "map5_all_users": 0.40781746031746025,
+      "map5_eligible5": 0.4271967120181406,
+      "map5_single_eligible5": 0.43363531780270353,
+      "n_eligible5": 1176,
+      "fallback_used": 45,
+      "users_gained": 161,
+      "users_lost": 274,
+      "users_tied": 825,
+      "mean_user_ap_delta": -0.01103505291005291
+    },
+    {
+      "window": "apr06_84d",
+      "variant": "power1.5",
+      "map5_all_users": 0.3996296296296296,
+      "map5_eligible5": 0.4187358276643991,
+      "map5_single_eligible5": 0.42566292781133164,
+      "n_eligible5": 1176,
+      "fallback_used": 45,
+      "users_gained": 214,
+      "users_lost": 378,
+      "users_tied": 668,
+      "mean_user_ap_delta": -0.019222883597883596
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "submitted_confidence",
+      "map5_all_users": 0.41474537037037035,
+      "map5_eligible5": 0.4351246775580395,
+      "map5_single_eligible5": 0.4438684210526316,
+      "n_eligible5": 1163,
+      "fallback_used": 34
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "running_control",
+      "map5_all_users": 0.41474537037037035,
+      "map5_eligible5": 0.4351246775580395,
+      "map5_single_eligible5": 0.4438684210526316,
+      "n_eligible5": 1163,
+      "fallback_used": 34
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "power0.5",
+      "map5_all_users": 0.41276565255731923,
+      "map5_eligible5": 0.4323588420750932,
+      "map5_single_eligible5": 0.4404795321637427,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "users_gained": 91,
+      "users_lost": 137,
+      "users_tied": 1032,
+      "mean_user_ap_delta": -0.001979717813051146
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "power1",
+      "map5_all_users": 0.40471957671957665,
+      "map5_eligible5": 0.4247606764115793,
+      "map5_single_eligible5": 0.4340906432748538,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "users_gained": 166,
+      "users_lost": 270,
+      "users_tied": 824,
+      "mean_user_ap_delta": -0.010025793650793651
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "power1.5",
+      "map5_all_users": 0.3955171957671958,
+      "map5_eligible5": 0.41502722843221557,
+      "map5_single_eligible5": 0.4242251461988304,
+      "n_eligible5": 1163,
+      "fallback_used": 34,
+      "users_gained": 212,
+      "users_lost": 392,
+      "users_tied": 656,
+      "mean_user_ap_delta": -0.019228174603174605
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "submitted_confidence",
+      "map5_all_users": 0.4136225749559083,
+      "map5_eligible5": 0.4318721846846847,
+      "map5_single_eligible5": 0.43830048557554985,
+      "n_eligible5": 1184,
+      "fallback_used": 27
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "running_control",
+      "map5_all_users": 0.4136225749559083,
+      "map5_eligible5": 0.4318721846846847,
+      "map5_single_eligible5": 0.43830048557554985,
+      "n_eligible5": 1184,
+      "fallback_used": 27
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "power0.5",
+      "map5_all_users": 0.4093276014109347,
+      "map5_eligible5": 0.42702702702702705,
+      "map5_single_eligible5": 0.4336446729505856,
+      "n_eligible5": 1184,
+      "fallback_used": 27,
+      "users_gained": 79,
+      "users_lost": 131,
+      "users_tied": 1050,
+      "mean_user_ap_delta": -0.004294973544973545
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "power1",
+      "map5_all_users": 0.39975551146384475,
+      "map5_eligible5": 0.41729448198198205,
+      "map5_single_eligible5": 0.4245272779205941,
+      "n_eligible5": 1184,
+      "fallback_used": 27,
+      "users_gained": 168,
+      "users_lost": 278,
+      "users_tied": 814,
+      "mean_user_ap_delta": -0.013867063492063493
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "power1.5",
+      "map5_all_users": 0.3905035273368607,
+      "map5_eligible5": 0.40801520270270275,
+      "map5_single_eligible5": 0.41621822336475295,
+      "n_eligible5": 1184,
+      "fallback_used": 27,
+      "users_gained": 220,
+      "users_lost": 393,
+      "users_tied": 647,
+      "mean_user_ap_delta": -0.02311904761904762
+    }
+  ],
+  "details": [
+    {
+      "window": "apr06_84d",
+      "variant": "power0.5",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 103,
+          "mean_delta": -0.00038834951456310666,
+          "gained": 2,
+          "lost": 1
+        },
+        {
+          "cohort": "n5-19",
+          "n": 420,
+          "mean_delta": -0.0021190476190476194,
+          "gained": 22,
+          "lost": 35
+        },
+        {
+          "cohort": "n20+",
+          "n": 692,
+          "mean_delta": -0.00408718689788054,
+          "gained": 62,
+          "lost": 90
+        },
+        {
+          "cohort": "recent3",
+          "n": 872,
+          "mean_delta": -0.00397362385321101,
+          "gained": 67,
+          "lost": 105
+        },
+        {
+          "cohort": "age3-14",
+          "n": 290,
+          "mean_delta": -0.0010229885057471274,
+          "gained": 18,
+          "lost": 20
+        },
+        {
+          "cohort": "age14+",
+          "n": 53,
+          "mean_delta": 6.289308176100722e-05,
+          "gained": 1,
+          "lost": 1
+        }
+      ]
+    },
+    {
+      "window": "apr06_84d",
+      "variant": "power1",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 103,
+          "mean_delta": 0.0010032362459546915,
+          "gained": 3,
+          "lost": 1
+        },
+        {
+          "cohort": "n5-19",
+          "n": 420,
+          "mean_delta": -0.002930555555555557,
+          "gained": 59,
+          "lost": 62
+        },
+        {
+          "cohort": "n20+",
+          "n": 692,
+          "mean_delta": -0.018463391136801545,
+          "gained": 99,
+          "lost": 211
+        },
+        {
+          "cohort": "recent3",
+          "n": 872,
+          "mean_delta": -0.01505638379204893,
+          "gained": 125,
+          "lost": 235
+        },
+        {
+          "cohort": "age3-14",
+          "n": 290,
+          "mean_delta": -0.00277586206896552,
+          "gained": 35,
+          "lost": 39
+        },
+        {
+          "cohort": "age14+",
+          "n": 53,
+          "mean_delta": 0.0005660377358490571,
+          "gained": 1,
+          "lost": 0
+        }
+      ]
+    },
+    {
+      "window": "apr06_84d",
+      "variant": "power1.5",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 103,
+          "mean_delta": 0.0010032362459546915,
+          "gained": 4,
+          "lost": 3
+        },
+        {
+          "cohort": "n5-19",
+          "n": 420,
+          "mean_delta": -0.0033670634920634906,
+          "gained": 95,
+          "lost": 101
+        },
+        {
+          "cohort": "n20+",
+          "n": 692,
+          "mean_delta": -0.033106936416184965,
+          "gained": 115,
+          "lost": 274
+        },
+        {
+          "cohort": "recent3",
+          "n": 872,
+          "mean_delta": -0.02542335626911315,
+          "gained": 157,
+          "lost": 312
+        },
+        {
+          "cohort": "age3-14",
+          "n": 290,
+          "mean_delta": -0.006862068965517243,
+          "gained": 55,
+          "lost": 63
+        },
+        {
+          "cohort": "age14+",
+          "n": 53,
+          "mean_delta": -0.001163522012578614,
+          "gained": 2,
+          "lost": 3
+        }
+      ]
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "power0.5",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 83,
+          "mean_delta": -0.002048192771084338,
+          "gained": 1,
+          "lost": 2
+        },
+        {
+          "cohort": "n5-19",
+          "n": 349,
+          "mean_delta": 0.0013817255651066536,
+          "gained": 32,
+          "lost": 37
+        },
+        {
+          "cohort": "n20+",
+          "n": 794,
+          "mean_delta": -0.0035348446683459264,
+          "gained": 58,
+          "lost": 98
+        },
+        {
+          "cohort": "recent3",
+          "n": 883,
+          "mean_delta": -0.0031496162073738516,
+          "gained": 60,
+          "lost": 102
+        },
+        {
+          "cohort": "age3-14",
+          "n": 286,
+          "mean_delta": 0.0011421911421911428,
+          "gained": 29,
+          "lost": 31
+        },
+        {
+          "cohort": "age14+",
+          "n": 57,
+          "mean_delta": -0.0007017543859649143,
+          "gained": 2,
+          "lost": 4
+        }
+      ]
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "power1",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 83,
+          "mean_delta": -0.0012048192771084334,
+          "gained": 1,
+          "lost": 2
+        },
+        {
+          "cohort": "n5-19",
+          "n": 349,
+          "mean_delta": -0.002547755491881568,
+          "gained": 45,
+          "lost": 52
+        },
+        {
+          "cohort": "n20+",
+          "n": 794,
+          "mean_delta": -0.014664147774979009,
+          "gained": 120,
+          "lost": 216
+        },
+        {
+          "cohort": "recent3",
+          "n": 883,
+          "mean_delta": -0.010308607021517553,
+          "gained": 135,
+          "lost": 210
+        },
+        {
+          "cohort": "age3-14",
+          "n": 286,
+          "mean_delta": -0.012226107226107227,
+          "gained": 30,
+          "lost": 58
+        },
+        {
+          "cohort": "age14+",
+          "n": 57,
+          "mean_delta": -0.000584795321637427,
+          "gained": 1,
+          "lost": 2
+        }
+      ]
+    },
+    {
+      "window": "apr13_84d",
+      "variant": "power1.5",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 83,
+          "mean_delta": -0.002449799196787149,
+          "gained": 2,
+          "lost": 3
+        },
+        {
+          "cohort": "n5-19",
+          "n": 349,
+          "mean_delta": -0.0021227316141356266,
+          "gained": 78,
+          "lost": 82
+        },
+        {
+          "cohort": "n20+",
+          "n": 794,
+          "mean_delta": -0.029324097397145255,
+          "gained": 132,
+          "lost": 307
+        },
+        {
+          "cohort": "recent3",
+          "n": 883,
+          "mean_delta": -0.022298036995092484,
+          "gained": 163,
+          "lost": 302
+        },
+        {
+          "cohort": "age3-14",
+          "n": 286,
+          "mean_delta": -0.016369463869463873,
+          "gained": 46,
+          "lost": 88
+        },
+        {
+          "cohort": "age14+",
+          "n": 57,
+          "mean_delta": 0.0025146198830409343,
+          "gained": 3,
+          "lost": 2
+        }
+      ]
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "power0.5",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 71,
+          "mean_delta": -0.0018309859154929577,
+          "gained": 0,
+          "lost": 3
+        },
+        {
+          "cohort": "n5-19",
+          "n": 284,
+          "mean_delta": 0.0005105633802816898,
+          "gained": 24,
+          "lost": 28
+        },
+        {
+          "cohort": "n20+",
+          "n": 878,
+          "mean_delta": -0.006180713743356114,
+          "gained": 55,
+          "lost": 100
+        },
+        {
+          "cohort": "recent3",
+          "n": 848,
+          "mean_delta": -0.006802279874213836,
+          "gained": 55,
+          "lost": 108
+        },
+        {
+          "cohort": "age3-14",
+          "n": 318,
+          "mean_delta": 0.0012264150943396218,
+          "gained": 23,
+          "lost": 20
+        },
+        {
+          "cohort": "age14+",
+          "n": 67,
+          "mean_delta": -0.000497512437810946,
+          "gained": 1,
+          "lost": 3
+        }
+      ]
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "power1",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 71,
+          "mean_delta": -0.0003521126760563383,
+          "gained": 0,
+          "lost": 1
+        },
+        {
+          "cohort": "n5-19",
+          "n": 284,
+          "mean_delta": -0.0015874413145539913,
+          "gained": 43,
+          "lost": 39
+        },
+        {
+          "cohort": "n20+",
+          "n": 878,
+          "mean_delta": -0.019358390280941534,
+          "gained": 125,
+          "lost": 238
+        },
+        {
+          "cohort": "recent3",
+          "n": 848,
+          "mean_delta": -0.017971698113207545,
+          "gained": 122,
+          "lost": 221
+        },
+        {
+          "cohort": "age3-14",
+          "n": 318,
+          "mean_delta": -0.006333857442348008,
+          "gained": 45,
+          "lost": 51
+        },
+        {
+          "cohort": "age14+",
+          "n": 67,
+          "mean_delta": -0.003258706467661692,
+          "gained": 1,
+          "lost": 6
+        }
+      ]
+    },
+    {
+      "window": "apr20_84d",
+      "variant": "power1.5",
+      "cohorts": [
+        {
+          "cohort": "n1-4",
+          "n": 71,
+          "mean_delta": -0.001995305164319249,
+          "gained": 1,
+          "lost": 2
+        },
+        {
+          "cohort": "n5-19",
+          "n": 284,
+          "mean_delta": -0.0033978873239436636,
+          "gained": 68,
+          "lost": 59
+        },
+        {
+          "cohort": "n20+",
+          "n": 878,
+          "mean_delta": -0.03191723614274867,
+          "gained": 151,
+          "lost": 332
+        },
+        {
+          "cohort": "recent3",
+          "n": 848,
+          "mean_delta": -0.029123427672955973,
+          "gained": 152,
+          "lost": 304
+        },
+        {
+          "cohort": "age3-14",
+          "n": 318,
+          "mean_delta": -0.013349056603773583,
+          "gained": 63,
+          "lost": 81
+        },
+        {
+          "cohort": "age14+",
+          "n": 67,
+          "mean_delta": -0.0028109452736318438,
+          "gained": 5,
+          "lost": 8
+        }
+      ]
+    }
+  ],
+  "reuse": "all periods are overlapping reused development data"
+}

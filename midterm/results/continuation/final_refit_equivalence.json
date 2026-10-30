@@ -1,0 +1,13 @@
+{
+  "metrics": {
+    "window": "may04_84d",
+    "variant": "fresh_refit_frozen_confidence",
+    "map5_all_users": 0.3978236331569665,
+    "map5_eligible5": 0.4122157353350014,
+    "map5_single_eligible5": 0.4188093208297812,
+    "n_eligible5": 1199,
+    "fallback_used": 21
+  },
+  "matches_frozen": true,
+  "runtime_seconds": 35.02237190000005
+}

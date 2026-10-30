@@ -1,0 +1,14 @@
+{
+  "retained_extension": false,
+  "reason": "Positive in all windows but mean eligible-five gain below predeclared0.002 threshold; no rounding or guard relaxation",
+  "mean_eligible5_gain": 0.0019036180551197563,
+  "per_window_gain": {
+    "apr06_84d": 0.0020464852607710027,
+    "apr13_84d": 0.0012037833190026714,
+    "apr20_84d": 0.002460585585585595
+  },
+  "diagnostic_run": false,
+  "strongest_retained": "frozen confidence k5 tau56 on integrated-h56/global-opportunity/MF challenger",
+  "fusion_result_sha256": "9a3da47d49d6daf4509b0a3e2a3eb83cc0ffdfb81ad3f8cc5d56fff785098476",
+  "submission_csv_generated": false
+}

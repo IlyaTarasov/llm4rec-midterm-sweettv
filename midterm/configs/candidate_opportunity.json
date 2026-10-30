@@ -1,0 +1,14 @@
+{
+  "strategy": "qualified_popularity_association_repeat_with_airing_opportunity",
+  "target": "union fragments per airing; screen_time >= 0.8; five most frequent qualified IDs per user",
+  "training_cutoff": "2020-07-27",
+  "candidate_end_exclusive": "2020-10-20",
+  "seed": 42,
+  "popularity": {"weight": "users", "fusion_weight": 1.0, "normalization": "global"},
+  "association": {"lift_population": "training_active", "min_support": 10, "top_k": 100, "half_life_days": 30.0, "fusion_weight": 0.25, "normalization": "user"},
+  "repeat": {"half_life_days": 28.0, "fusion_weight": 2.0, "normalization": "user"},
+  "opportunity": {"past_and_future_airings": "distinct labelled ID/channel/start/duration rows with complete airing in window", "rate_cap_per_day": 2.0, "smoothing_airings_per_day": 0.1, "ratio_exponent": 0.5, "multiplier_min": 0.5, "multiplier_max": 1.5, "applied_to": "repeat scores before user normalization"},
+  "cold_and_zero_score_fallback": "all60 training-only distinct-user popularity",
+  "repeat_policy": "allow",
+  "score_ties": "ascending programme ID"
+}

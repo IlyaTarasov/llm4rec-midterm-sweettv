@@ -1,0 +1,28 @@
+{
+  "model": "frozen confidence k5 tau56",
+  "window": {
+    "name": "apr13_84d",
+    "fit_start": "2020-03-09",
+    "cutoff": "2020-04-13",
+    "end": "2020-07-06",
+    "schedule": "11-20+21-30"
+  },
+  "user_id": "3494670624291455232",
+  "ordered_recommendation_ids": [
+    240081,
+    12001682,
+    2400508,
+    200337,
+    1100411
+  ],
+  "target_ids": [
+    200337,
+    500315,
+    5200303,
+    12001682,
+    12001732
+  ],
+  "target_order_note": "Actual top-five frequency target, presented as a set in ascending ID order.",
+  "executor": "assistant generated inputs; author calculation pending",
+  "evidence_basis": "same frozen formula and window as report_evidence.json"
+}

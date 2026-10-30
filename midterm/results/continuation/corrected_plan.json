@@ -1,0 +1,16 @@
+{
+  "created_before_corrected_scores": true,
+  "source": "https://www.kaggle.com/competitions/sweettv-tv-program-recommender/data",
+  "local_fragment_rule": "Union same-user same-channel same-item same-airing positive overlap intervals; cap at airing duration; qualify when union/duration >=0.8. Require complete source views and complete airings before cutoff. Compare against single-view >=0.8 as a sensitivity check.",
+  "tie_rule": "Descending qualifying-airing frequency, then ascending tv_show_id. Competition tie behavior unknown.",
+  "selection_windows": [
+    {"name":"apr06_84d","fit_start":"2020-03-09","cutoff":"2020-04-06","end":"2020-06-29","schedule":"11-20+21-30"},
+    {"name":"apr13_84d","fit_start":"2020-03-09","cutoff":"2020-04-13","end":"2020-07-06","schedule":"11-20+21-30"},
+    {"name":"apr20_84d","fit_start":"2020-03-09","cutoff":"2020-04-20","end":"2020-07-13","schedule":"11-20+21-30"}
+  ],
+  "diagnostic_window":{"name":"may04_84d","fit_start":"2020-03-09","cutoff":"2020-05-04","end":"2020-07-27","schedule":"11-20+21-30"},
+  "comparison": ["popularity_all60", "first_submitted", "second_submitted", "qualified_popularity", "qualified_repeat", "qualified_association", "qualified_fusion"],
+  "qualified_fusion": "Same first fusion weights (popularity1, association0.25, repeat3), half-life14 repeat; association legacy population to isolate target correction. Qualified-airing counts replace 60-second session counts. No weight search.",
+  "selection_guard": "Before diagnostic choose at most one corrected variant. Require improvement on both all-user and eligible-five MAP@5 in all three 84-day selection windows, with mean gain >=0.01 on eligible-five and no window loss worse than -0.005. This is reused diagnostic data, not independent confirmation. If none pass, retain first confirmed CSV.",
+  "uncertainties": "Competition does not document fragment union, tie resolution, or exact ordered-MAP implementation. Local AP uses a set of five preferred IDs; report complete-five and all-user metrics."
+}

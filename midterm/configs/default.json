@@ -1,0 +1,94 @@
+{
+  "data_dir": "midterm/data/sweettv-tv-program-recommender",
+  "artifacts_dir": "midterm/artifacts",
+  "results_dir": "midterm/results",
+  "seed": 42,
+  "join": {
+    "min_overlap_seconds": 60,
+    "min_overlap_fraction": 0.0,
+    "best_overlap_only": false
+  },
+  "windows": {
+    "fit_start": "2020-03-09",
+    "val_start": "2020-05-18",
+    "val_end": "2020-06-22",
+    "audit_end": "2020-07-27",
+    "test_end": "2020-10-20"
+  },
+  "repeat_policy": "allow",
+  "popularity": {
+    "weight": "users"
+  },
+  "content": {
+    "half_life_days": 30.0,
+    "use_cast": true,
+    "cast_weight": 0.35,
+    "director_weight": 0.5,
+    "decade_weight": 0.5,
+    "min_token_df": 2
+  },
+  "association": {
+    "min_support": 5,
+    "min_confidence": 0.05,
+    "min_lift": 1.0,
+    "top_k": 100,
+    "aggregate": "sum"
+  },
+  "mf": {
+    "factors": 64,
+    "iterations": 15,
+    "reg": 0.05,
+    "alpha": 20.0,
+    "weight": "count"
+  },
+  "pagerank": {
+    "alpha": 0.85,
+    "iterations": 30,
+    "tol": 1e-07,
+    "top_k": 50,
+    "edge_weight": "cosine"
+  },
+  "hybrid": {
+    "method": "rrf",
+    "rrf_k": 60,
+    "weights": {
+      "popularity": 0.5,
+      "content": 0.5,
+      "association": 0.5,
+      "mf": 1.0,
+      "pagerank": 0.5
+    }
+  },
+  "sensitivity": {
+    "thresholds": [
+      {
+        "min_overlap_seconds": 30,
+        "min_overlap_fraction": 0.0
+      },
+      {
+        "min_overlap_seconds": 60,
+        "min_overlap_fraction": 0.0
+      },
+      {
+        "min_overlap_seconds": 120,
+        "min_overlap_fraction": 0.0
+      },
+      {
+        "min_overlap_seconds": 300,
+        "min_overlap_fraction": 0.0
+      },
+      {
+        "min_overlap_seconds": 30,
+        "min_overlap_fraction": 0.1
+      },
+      {
+        "min_overlap_seconds": 60,
+        "min_overlap_fraction": 0.1
+      },
+      {
+        "min_overlap_seconds": 60,
+        "min_overlap_fraction": 0.25
+      }
+    ]
+  }
+}
