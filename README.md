@@ -11,6 +11,7 @@ sweettv/
   models.py                              Popularity, association rules, implicit MF
   ranking.py                             Normalization, ranking and shared fallback
   pipeline.py                            Complete raw-data refit and verification
+  comparison.py                          Content/PPR and fixed five-method comparison
 submission_final_confidence_integrated_mf.csv
 ```
 
@@ -43,6 +44,22 @@ the models from scratch, regenerates the submission in memory and compares
 every byte against the designated CSV. It needs no historical outputs, result
 JSON, prepared caches or files outside this project and the five source CSVs.
 It does not overwrite the submitted file or produce intermediate CSVs.
+
+To reproduce the fixed April–July comparison of content similarity, association,
+implicit MF, personalized PageRank, popularity and the final fusion:
+
+```shell
+python -m sweettv.comparison --data-dir data
+python -m sweettv.comparison --data-dir data --user-id 13571199046623737884 --user-id 17337543921140631187
+```
+
+The second command also prints ordered programme IDs, titles, categories and
+held-out outcomes for the same two example users. These commands print JSON
+to the terminal without writing result files or generating CSV candidates.
+The comparison settings are explicit under `comparison` in `config.json`.
+Content uses training-only TF–IDF metadata and 14-day history decay. PPR uses
+top-50 cosine co-view edges, damping 0.95 and 30-day restart-history decay,
+with at most 30 iterations and tolerance 1e-7; convergence is not assumed.
 
 Expected SHA256:
 `4b8e43896f9f0cdd81d31427a2798969111cc59626d1ac8df86825a630d7077a`

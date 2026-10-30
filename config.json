@@ -64,5 +64,25 @@
     "export_arh_31-42-final.csv": "5cc01f4619bd94886d83744f00bbc15cc5fa23384d297244a7dc2207450c4088",
     "submission.csv": "d8c209dce3c7c9d815d8e2a6226e1be63052ee7afa7e8ba8b75dc2f703967a02"
   },
-  "expected_submission_sha256": "4b8e43896f9f0cdd81d31427a2798969111cc59626d1ac8df86825a630d7077a"
+  "expected_submission_sha256": "4b8e43896f9f0cdd81d31427a2798969111cc59626d1ac8df86825a630d7077a",
+  "comparison": {
+    "fit_cutoff": "2020-04-13",
+    "candidate_end_exclusive": "2020-07-06",
+    "content": {
+      "half_life_days": 14,
+      "use_cast": true,
+      "cast_weight": 0.35,
+      "director_weight": 0.5,
+      "decade_weight": 0.5,
+      "min_token_df": 2
+    },
+    "pagerank": {
+      "alpha": 0.95,
+      "iterations": 30,
+      "tol": 1e-07,
+      "top_k": 50,
+      "edge_weight": "cosine"
+    },
+    "pagerank_history_half_life_days": 30
+  }
 }

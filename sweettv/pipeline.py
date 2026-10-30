@@ -70,11 +70,12 @@ def opportunity(past, future, start, cutoff, end, candidates, smoothing, config)
     return np.clip(ratio ** config['exponent'], config['minimum'], config['maximum'])
 
 
-def refit(schedules, joined, user_ids, item_ids, template, config):
+def refit(schedules, joined, user_ids, item_ids, template, config, evaluation_schedule=None):
     start, cutoff, end = map(pd.Timestamp, (config['fit_start'], config['fit_cutoff'],
                                           config['candidate_end_exclusive']))
     users = template.user_id.to_numpy(dtype=np.uint64)
-    future = schedules[SCHEDULE_FILES[2]][['tv_show_id', 'channel_id', 'start', 'duration', 'end']]
+    schedule = schedules[SCHEDULE_FILES[2]] if evaluation_schedule is None else evaluation_schedule
+    future = schedule[['tv_show_id', 'channel_id', 'start', 'duration', 'end']]
     candidates = candidate_items(future, cutoff, end)
     uidx = np.searchsorted(user_ids, users)
     cidx = np.searchsorted(item_ids, candidates)
